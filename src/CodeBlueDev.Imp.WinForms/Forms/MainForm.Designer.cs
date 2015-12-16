@@ -1,4 +1,4 @@
-﻿namespace CodeBlueDev.Imp.WinForms
+﻿namespace CodeBlueDev.Imp.WinForms.Forms
 {
     partial class MainForm
     {

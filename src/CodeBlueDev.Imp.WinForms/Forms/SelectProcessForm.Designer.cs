@@ -1,4 +1,4 @@
-﻿namespace CodeBlueDev.Imp.WinForms
+﻿namespace CodeBlueDev.Imp.WinForms.Forms
 {
     partial class SelectProcessForm
     {
@@ -28,20 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.DataGridViewProcesses = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProcesses)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataGridViewProcesses
+            // 
+            this.DataGridViewProcesses.AllowUserToAddRows = false;
+            this.DataGridViewProcesses.AllowUserToDeleteRows = false;
+            this.DataGridViewProcesses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewProcesses.Location = new System.Drawing.Point(13, 13);
+            this.DataGridViewProcesses.Name = "DataGridViewProcesses";
+            this.DataGridViewProcesses.ReadOnly = true;
+            this.DataGridViewProcesses.Size = new System.Drawing.Size(259, 150);
+            this.DataGridViewProcesses.TabIndex = 0;
             // 
             // SelectProcessForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.DataGridViewProcesses);
             this.Name = "SelectProcessForm";
             this.Text = "SelectProcessForm";
             this.Shown += new System.EventHandler(this.OnSelectProcessFormShown);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProcesses)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView DataGridViewProcesses;
     }
 }

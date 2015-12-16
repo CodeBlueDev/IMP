@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CodeBlueDev.Imp.WinForms
+namespace CodeBlueDev.Imp.WinForms.Forms
 {
     public partial class MainForm : Form
     {
