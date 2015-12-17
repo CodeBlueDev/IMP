@@ -39,8 +39,8 @@
             // 
             this.DataGridViewProcesses.AllowUserToAddRows = false;
             this.DataGridViewProcesses.AllowUserToDeleteRows = false;
-            this.DataGridViewProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.DataGridViewProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridViewProcesses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewProcesses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -52,6 +52,8 @@
             this.DataGridViewProcesses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridViewProcesses.Size = new System.Drawing.Size(415, 489);
             this.DataGridViewProcesses.TabIndex = 0;
+            this.DataGridViewProcesses.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnDataGridViewProcessCellDoubleClick);
+            this.DataGridViewProcesses.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnDataGridViewProcessColumnHeaderMouseClick);
             // 
             // ButtonRefresh
             // 
@@ -103,9 +105,11 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select Process";
-            this.Shown += new System.EventHandler(this.OnSelectProcessFormShown);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnProcessSelectorFormClosing);
+            this.Shown += new System.EventHandler(this.OnProcessSelectorFormShown);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProcesses)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
