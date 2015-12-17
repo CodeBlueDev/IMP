@@ -8,11 +8,11 @@ namespace CodeBlueDev.Imp.WinForms.Forms
 {
     public partial class ProcessSelectorForm : Form
     {
-        private readonly BindingList<SelectProcessFormViewModel> _processes;
+        private readonly BindingList<ProcessSelectorFormViewModel> _processes;
 
         public ProcessSelectorForm()
         {
-            _processes = new BindingList<SelectProcessFormViewModel>();
+            _processes = new BindingList<ProcessSelectorFormViewModel>();
 
             InitializeComponent();
 
@@ -41,7 +41,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
                 foreach (Process process in Process.GetProcesses())
                 {
                     // TODO: Convert to ViewModel and display to the user.
-                    _processes.Add(new SelectProcessFormViewModel()
+                    _processes.Add(new ProcessSelectorFormViewModel()
                     {
                         Id = process.Id,
                         Name = process.ProcessName,

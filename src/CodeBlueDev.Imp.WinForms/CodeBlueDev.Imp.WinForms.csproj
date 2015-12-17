@@ -57,7 +57,7 @@
     <Compile Include="Forms\ProcessSelectorForm.Designer.cs">
       <DependentUpon>ProcessSelectorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\SelectProcessFormViewModel.cs" />
+    <Compile Include="ViewModels\ProcessSelectorFormViewModel.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

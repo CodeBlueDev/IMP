@@ -2,7 +2,7 @@
 
 namespace CodeBlueDev.Imp.WinForms.ViewModels
 {
-    internal class SelectProcessFormViewModel
+    internal class ProcessSelectorFormViewModel
     {
         [DisplayName("PID")]
         public int Id { get; set; }
