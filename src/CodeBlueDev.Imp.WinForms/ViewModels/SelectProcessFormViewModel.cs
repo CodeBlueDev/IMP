@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace CodeBlueDev.Imp.WinForms.ViewModels
 {
     internal class SelectProcessFormViewModel
     {
+        [DisplayName("PID")]
         public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Title { get; set; }
     }
 }

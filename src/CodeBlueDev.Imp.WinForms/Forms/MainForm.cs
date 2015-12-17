@@ -1,27 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CodeBlueDev.Imp.WinForms.Forms
 {
     public partial class MainForm : Form
     {
-        private readonly SelectProcessForm _selectProcessForm;
+        private readonly ProcessSelectorForm _processSelectorForm;
 
         private Process _selectedProcess;
 
         public MainForm()
         {
-            _selectProcessForm = new SelectProcessForm();
-
             InitializeComponent();
+
+            _processSelectorForm = new ProcessSelectorForm();
         }
 
         private void OnMainFormLoad(object sender, EventArgs e)
@@ -34,8 +27,8 @@ namespace CodeBlueDev.Imp.WinForms.Forms
 
         private void ShowSelectProcessForm()
         {
-            // SelectProcessForm was closed or cancelled
-            if (_selectProcessForm.ShowDialog() != DialogResult.OK)
+            // ProcessSelectorForm was closed or cancelled
+            if (_processSelectorForm.ShowDialog() != DialogResult.OK)
             {
                 // Check if the user has already selected a process.
                 if(_selectedProcess != null)
@@ -58,7 +51,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         private void OnMainFormClosed(object sender, FormClosedEventArgs e)
         {
             // Cleanup. Is not necessary because of Application Exit but is proper.
-            _selectProcessForm.Dispose();
+            _processSelectorForm.Dispose();
             _selectedProcess = null;
         }
     }

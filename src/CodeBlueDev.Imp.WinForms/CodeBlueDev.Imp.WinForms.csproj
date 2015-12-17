@@ -36,7 +36,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -52,18 +51,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\SelectProcessForm.cs">
+    <Compile Include="Forms\ProcessSelectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SelectProcessForm.Designer.cs">
-      <DependentUpon>SelectProcessForm.cs</DependentUpon>
+    <Compile Include="Forms\ProcessSelectorForm.Designer.cs">
+      <DependentUpon>ProcessSelectorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\SelectProcessFormViewModel.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SelectProcessForm.resx">
-      <DependentUpon>SelectProcessForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ProcessSelectorForm.resx">
+      <DependentUpon>ProcessSelectorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
