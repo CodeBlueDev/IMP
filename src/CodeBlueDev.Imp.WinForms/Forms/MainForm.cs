@@ -15,7 +15,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             InitializeComponent();
 
             _processSelectorForm = new ProcessSelectorForm();
-            _processSelectorForm.ProcessSelected += OnProcessSelect;
+            _processSelectorForm.ProcessSelect += OnProcessSelect;
         }
 
         private void OnMainFormLoad(object sender, EventArgs e)
