@@ -35,22 +35,24 @@ namespace CodeBlueDev.Imp.WinForms.Forms
                 Invoke(new Action<Process>(OnProcessSelect), process);
                 return;
             }
-
+            // Save the Selected Process.
             _selectedProcess = process;
             // Display values that should not change.
             LabelProcessIdValue.Text = _selectedProcess.Id.ToString();
             LabelProcessNameValue.Text = _selectedProcess.ProcessName;
-            // TODO: Logic to do with the selected process.
+            // TODO: Figure out if process is 64 bit process and display to user.
             // Display values that could change.
             ShowProcessInfo();
+            // TODO: Logic to do with the selected process modules.
             // TODO: Start the timer that will update the values that could change.
         }
 
         private void OnMainFormClosed(object sender, FormClosedEventArgs e)
         {
-            // Cleanup. Is not necessary because of Application Exit but is proper.
+            // Cleanup.
             _processSelectorForm.Dispose();
             _selectedProcess = null;
+            // TODO: Dispose of timer.
         }
 
         private void ShowSelectProcessForm()
@@ -79,6 +81,8 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         private void ShowProcessInfo()
         {
             // TODO: Will need to bind to Size event to properly put the labels so they do not overlap.
+            LabelWindowTitleValue.Text = _selectedProcess.MainWindowTitle;
+
             LabelNonPagedSystemMemoryValue.Text = _selectedProcess.NonpagedSystemMemorySize64.ToString();
             LabelPagedSystemMemoryValue.Text = _selectedProcess.PagedSystemMemorySize64.ToString();
 
@@ -87,9 +91,8 @@ namespace CodeBlueDev.Imp.WinForms.Forms
 
             LabelVirtualMemoryValue.Text = _selectedProcess.VirtualMemorySize64.ToString();
             LabelPeakVirtualMemoryValue.Text = _selectedProcess.PeakVirtualMemorySize64.ToString();
-            
-            //_selectedProcess.PrivateMemorySize64
-            //_selectedProcess.MainWindowTitle
+
+            LabelPrivateMemoryValue.Text = _selectedProcess.PrivateMemorySize64.ToString();
         }
     }
 }

@@ -34,6 +34,16 @@
             this.StatusStripMain = new System.Windows.Forms.StatusStrip();
             this.ToolStripStatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
             this.GroupBoxProcessInfo = new System.Windows.Forms.GroupBox();
+            this.LabelPrivateMemoryValue = new System.Windows.Forms.Label();
+            this.LabelPrivateMemory = new System.Windows.Forms.Label();
+            this.LabelPeakVirtualMemoryValue = new System.Windows.Forms.Label();
+            this.LabelPeakVirtualMemory = new System.Windows.Forms.Label();
+            this.LabelVirtualMemoryValue = new System.Windows.Forms.Label();
+            this.LabelVirtualMemory = new System.Windows.Forms.Label();
+            this.LabelPeakPagedMemoryValue = new System.Windows.Forms.Label();
+            this.LabelPeakPagedMemory = new System.Windows.Forms.Label();
+            this.LabelPagedMemoryValue = new System.Windows.Forms.Label();
+            this.LabelPagedMemory = new System.Windows.Forms.Label();
             this.LabelPagedSystemMemoryValue = new System.Windows.Forms.Label();
             this.LabelPagedSystemMemory = new System.Windows.Forms.Label();
             this.LabelNonPagedSystemMemoryValue = new System.Windows.Forms.Label();
@@ -43,14 +53,9 @@
             this.LabelProcessIdValue = new System.Windows.Forms.Label();
             this.LabelProcessId = new System.Windows.Forms.Label();
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
-            this.LabelPagedMemory = new System.Windows.Forms.Label();
-            this.LabelPagedMemoryValue = new System.Windows.Forms.Label();
-            this.LabelPeakPagedMemory = new System.Windows.Forms.Label();
-            this.LabelPeakPagedMemoryValue = new System.Windows.Forms.Label();
-            this.LabelVirtualMemory = new System.Windows.Forms.Label();
-            this.LabelVirtualMemoryValue = new System.Windows.Forms.Label();
-            this.LabelPeakVirtualMemory = new System.Windows.Forms.Label();
-            this.LabelPeakVirtualMemoryValue = new System.Windows.Forms.Label();
+            this.LabelWindowTitle = new System.Windows.Forms.Label();
+            this.LabelWindowTitleValue = new System.Windows.Forms.Label();
+            this.ButtonWindowTitleUpdate = new System.Windows.Forms.Button();
             this.StatusStripMain.SuspendLayout();
             this.GroupBoxProcessInfo.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +93,11 @@
             // 
             this.GroupBoxProcessInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.GroupBoxProcessInfo.Controls.Add(this.ButtonWindowTitleUpdate);
+            this.GroupBoxProcessInfo.Controls.Add(this.LabelWindowTitleValue);
+            this.GroupBoxProcessInfo.Controls.Add(this.LabelWindowTitle);
+            this.GroupBoxProcessInfo.Controls.Add(this.LabelPrivateMemoryValue);
+            this.GroupBoxProcessInfo.Controls.Add(this.LabelPrivateMemory);
             this.GroupBoxProcessInfo.Controls.Add(this.LabelPeakVirtualMemoryValue);
             this.GroupBoxProcessInfo.Controls.Add(this.LabelPeakVirtualMemory);
             this.GroupBoxProcessInfo.Controls.Add(this.LabelVirtualMemoryValue);
@@ -106,14 +116,99 @@
             this.GroupBoxProcessInfo.Controls.Add(this.LabelProcessId);
             this.GroupBoxProcessInfo.Location = new System.Drawing.Point(12, 52);
             this.GroupBoxProcessInfo.Name = "GroupBoxProcessInfo";
-            this.GroupBoxProcessInfo.Size = new System.Drawing.Size(460, 122);
+            this.GroupBoxProcessInfo.Size = new System.Drawing.Size(460, 151);
             this.GroupBoxProcessInfo.TabIndex = 0;
             this.GroupBoxProcessInfo.TabStop = false;
             this.GroupBoxProcessInfo.Text = "Process Info";
             // 
+            // LabelPrivateMemoryValue
+            // 
+            this.LabelPrivateMemoryValue.Location = new System.Drawing.Point(95, 129);
+            this.LabelPrivateMemoryValue.Name = "LabelPrivateMemoryValue";
+            this.LabelPrivateMemoryValue.Size = new System.Drawing.Size(151, 13);
+            this.LabelPrivateMemoryValue.TabIndex = 21;
+            this.LabelPrivateMemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LabelPrivateMemory
+            // 
+            this.LabelPrivateMemory.AutoSize = true;
+            this.LabelPrivateMemory.Location = new System.Drawing.Point(7, 129);
+            this.LabelPrivateMemory.Name = "LabelPrivateMemory";
+            this.LabelPrivateMemory.Size = new System.Drawing.Size(83, 13);
+            this.LabelPrivateMemory.TabIndex = 20;
+            this.LabelPrivateMemory.Text = "Private Memory:";
+            // 
+            // LabelPeakVirtualMemoryValue
+            // 
+            this.LabelPeakVirtualMemoryValue.Location = new System.Drawing.Point(365, 107);
+            this.LabelPeakVirtualMemoryValue.Name = "LabelPeakVirtualMemoryValue";
+            this.LabelPeakVirtualMemoryValue.Size = new System.Drawing.Size(89, 13);
+            this.LabelPeakVirtualMemoryValue.TabIndex = 19;
+            this.LabelPeakVirtualMemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LabelPeakVirtualMemory
+            // 
+            this.LabelPeakVirtualMemory.AutoSize = true;
+            this.LabelPeakVirtualMemory.Location = new System.Drawing.Point(252, 107);
+            this.LabelPeakVirtualMemory.Name = "LabelPeakVirtualMemory";
+            this.LabelPeakVirtualMemory.Size = new System.Drawing.Size(107, 13);
+            this.LabelPeakVirtualMemory.TabIndex = 18;
+            this.LabelPeakVirtualMemory.Text = "Peak Virtual Memory:";
+            // 
+            // LabelVirtualMemoryValue
+            // 
+            this.LabelVirtualMemoryValue.Location = new System.Drawing.Point(92, 107);
+            this.LabelVirtualMemoryValue.Name = "LabelVirtualMemoryValue";
+            this.LabelVirtualMemoryValue.Size = new System.Drawing.Size(154, 13);
+            this.LabelVirtualMemoryValue.TabIndex = 17;
+            this.LabelVirtualMemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LabelVirtualMemory
+            // 
+            this.LabelVirtualMemory.AutoSize = true;
+            this.LabelVirtualMemory.Location = new System.Drawing.Point(7, 107);
+            this.LabelVirtualMemory.Name = "LabelVirtualMemory";
+            this.LabelVirtualMemory.Size = new System.Drawing.Size(79, 13);
+            this.LabelVirtualMemory.TabIndex = 16;
+            this.LabelVirtualMemory.Text = "Virtual Memory:";
+            // 
+            // LabelPeakPagedMemoryValue
+            // 
+            this.LabelPeakPagedMemoryValue.Location = new System.Drawing.Point(367, 85);
+            this.LabelPeakPagedMemoryValue.Name = "LabelPeakPagedMemoryValue";
+            this.LabelPeakPagedMemoryValue.Size = new System.Drawing.Size(87, 13);
+            this.LabelPeakPagedMemoryValue.TabIndex = 15;
+            this.LabelPeakPagedMemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LabelPeakPagedMemory
+            // 
+            this.LabelPeakPagedMemory.AutoSize = true;
+            this.LabelPeakPagedMemory.Location = new System.Drawing.Point(252, 85);
+            this.LabelPeakPagedMemory.Name = "LabelPeakPagedMemory";
+            this.LabelPeakPagedMemory.Size = new System.Drawing.Size(109, 13);
+            this.LabelPeakPagedMemory.TabIndex = 14;
+            this.LabelPeakPagedMemory.Text = "Peak Paged Memory:";
+            // 
+            // LabelPagedMemoryValue
+            // 
+            this.LabelPagedMemoryValue.Location = new System.Drawing.Point(94, 85);
+            this.LabelPagedMemoryValue.Name = "LabelPagedMemoryValue";
+            this.LabelPagedMemoryValue.Size = new System.Drawing.Size(152, 13);
+            this.LabelPagedMemoryValue.TabIndex = 13;
+            this.LabelPagedMemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LabelPagedMemory
+            // 
+            this.LabelPagedMemory.AutoSize = true;
+            this.LabelPagedMemory.Location = new System.Drawing.Point(7, 85);
+            this.LabelPagedMemory.Name = "LabelPagedMemory";
+            this.LabelPagedMemory.Size = new System.Drawing.Size(81, 13);
+            this.LabelPagedMemory.TabIndex = 12;
+            this.LabelPagedMemory.Text = "Paged Memory:";
+            // 
             // LabelPagedSystemMemoryValue
             // 
-            this.LabelPagedSystemMemoryValue.Location = new System.Drawing.Point(376, 42);
+            this.LabelPagedSystemMemoryValue.Location = new System.Drawing.Point(376, 63);
             this.LabelPagedSystemMemoryValue.Name = "LabelPagedSystemMemoryValue";
             this.LabelPagedSystemMemoryValue.Size = new System.Drawing.Size(78, 13);
             this.LabelPagedSystemMemoryValue.TabIndex = 11;
@@ -124,7 +219,7 @@
             // LabelPagedSystemMemory
             // 
             this.LabelPagedSystemMemory.AutoSize = true;
-            this.LabelPagedSystemMemory.Location = new System.Drawing.Point(252, 42);
+            this.LabelPagedSystemMemory.Location = new System.Drawing.Point(252, 63);
             this.LabelPagedSystemMemory.Name = "LabelPagedSystemMemory";
             this.LabelPagedSystemMemory.Size = new System.Drawing.Size(118, 13);
             this.LabelPagedSystemMemory.TabIndex = 10;
@@ -134,7 +229,7 @@
             // 
             // LabelNonPagedSystemMemoryValue
             // 
-            this.LabelNonPagedSystemMemoryValue.Location = new System.Drawing.Point(152, 42);
+            this.LabelNonPagedSystemMemoryValue.Location = new System.Drawing.Point(152, 63);
             this.LabelNonPagedSystemMemoryValue.Name = "LabelNonPagedSystemMemoryValue";
             this.LabelNonPagedSystemMemoryValue.Size = new System.Drawing.Size(94, 13);
             this.LabelNonPagedSystemMemoryValue.TabIndex = 9;
@@ -145,7 +240,7 @@
             // LabelNonPagedSystemMemory
             // 
             this.LabelNonPagedSystemMemory.AutoSize = true;
-            this.LabelNonPagedSystemMemory.Location = new System.Drawing.Point(6, 42);
+            this.LabelNonPagedSystemMemory.Location = new System.Drawing.Point(6, 63);
             this.LabelNonPagedSystemMemory.Name = "LabelNonPagedSystemMemory";
             this.LabelNonPagedSystemMemory.Size = new System.Drawing.Size(137, 13);
             this.LabelNonPagedSystemMemory.TabIndex = 8;
@@ -198,73 +293,31 @@
             this.LabelProcessId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ToolTipMain.SetToolTip(this.LabelProcessId, "The Unique Identifier associated with the Process.");
             // 
-            // LabelPagedMemory
+            // LabelWindowTitle
             // 
-            this.LabelPagedMemory.AutoSize = true;
-            this.LabelPagedMemory.Location = new System.Drawing.Point(7, 64);
-            this.LabelPagedMemory.Name = "LabelPagedMemory";
-            this.LabelPagedMemory.Size = new System.Drawing.Size(81, 13);
-            this.LabelPagedMemory.TabIndex = 12;
-            this.LabelPagedMemory.Text = "Paged Memory:";
+            this.LabelWindowTitle.AutoSize = true;
+            this.LabelWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelWindowTitle.Location = new System.Drawing.Point(7, 42);
+            this.LabelWindowTitle.Name = "LabelWindowTitle";
+            this.LabelWindowTitle.Size = new System.Drawing.Size(85, 13);
+            this.LabelWindowTitle.TabIndex = 22;
+            this.LabelWindowTitle.Text = "Window Title:";
             // 
-            // LabelPagedMemoryValue
+            // LabelWindowTitleValue
             // 
-            this.LabelPagedMemoryValue.Location = new System.Drawing.Point(94, 64);
-            this.LabelPagedMemoryValue.Name = "LabelPagedMemoryValue";
-            this.LabelPagedMemoryValue.Size = new System.Drawing.Size(152, 13);
-            this.LabelPagedMemoryValue.TabIndex = 13;
-            this.LabelPagedMemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LabelWindowTitleValue.Location = new System.Drawing.Point(98, 42);
+            this.LabelWindowTitleValue.Name = "LabelWindowTitleValue";
+            this.LabelWindowTitleValue.Size = new System.Drawing.Size(275, 13);
+            this.LabelWindowTitleValue.TabIndex = 23;
             // 
-            // LabelPeakPagedMemory
+            // ButtonWindowTitleUpdate
             // 
-            this.LabelPeakPagedMemory.AutoSize = true;
-            this.LabelPeakPagedMemory.Location = new System.Drawing.Point(252, 64);
-            this.LabelPeakPagedMemory.Name = "LabelPeakPagedMemory";
-            this.LabelPeakPagedMemory.Size = new System.Drawing.Size(109, 13);
-            this.LabelPeakPagedMemory.TabIndex = 14;
-            this.LabelPeakPagedMemory.Text = "Peak Paged Memory:";
-            // 
-            // LabelPeakPagedMemoryValue
-            // 
-            this.LabelPeakPagedMemoryValue.Location = new System.Drawing.Point(367, 64);
-            this.LabelPeakPagedMemoryValue.Name = "LabelPeakPagedMemoryValue";
-            this.LabelPeakPagedMemoryValue.Size = new System.Drawing.Size(87, 13);
-            this.LabelPeakPagedMemoryValue.TabIndex = 15;
-            this.LabelPeakPagedMemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LabelVirtualMemory
-            // 
-            this.LabelVirtualMemory.AutoSize = true;
-            this.LabelVirtualMemory.Location = new System.Drawing.Point(7, 86);
-            this.LabelVirtualMemory.Name = "LabelVirtualMemory";
-            this.LabelVirtualMemory.Size = new System.Drawing.Size(79, 13);
-            this.LabelVirtualMemory.TabIndex = 16;
-            this.LabelVirtualMemory.Text = "Virtual Memory:";
-            // 
-            // LabelVirtualMemoryValue
-            // 
-            this.LabelVirtualMemoryValue.Location = new System.Drawing.Point(92, 86);
-            this.LabelVirtualMemoryValue.Name = "LabelVirtualMemoryValue";
-            this.LabelVirtualMemoryValue.Size = new System.Drawing.Size(154, 13);
-            this.LabelVirtualMemoryValue.TabIndex = 17;
-            this.LabelVirtualMemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LabelPeakVirtualMemory
-            // 
-            this.LabelPeakVirtualMemory.AutoSize = true;
-            this.LabelPeakVirtualMemory.Location = new System.Drawing.Point(252, 86);
-            this.LabelPeakVirtualMemory.Name = "LabelPeakVirtualMemory";
-            this.LabelPeakVirtualMemory.Size = new System.Drawing.Size(107, 13);
-            this.LabelPeakVirtualMemory.TabIndex = 18;
-            this.LabelPeakVirtualMemory.Text = "Peak Virtual Memory:";
-            // 
-            // LabelPeakVirtualMemoryValue
-            // 
-            this.LabelPeakVirtualMemoryValue.Location = new System.Drawing.Point(365, 86);
-            this.LabelPeakVirtualMemoryValue.Name = "LabelPeakVirtualMemoryValue";
-            this.LabelPeakVirtualMemoryValue.Size = new System.Drawing.Size(89, 13);
-            this.LabelPeakVirtualMemoryValue.TabIndex = 19;
-            this.LabelPeakVirtualMemoryValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ButtonWindowTitleUpdate.Location = new System.Drawing.Point(379, 37);
+            this.ButtonWindowTitleUpdate.Name = "ButtonWindowTitleUpdate";
+            this.ButtonWindowTitleUpdate.Size = new System.Drawing.Size(75, 23);
+            this.ButtonWindowTitleUpdate.TabIndex = 24;
+            this.ButtonWindowTitleUpdate.Text = "Update";
+            this.ButtonWindowTitleUpdate.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -294,24 +347,29 @@
         private System.Windows.Forms.ToolStrip ToolStripMain;
         private System.Windows.Forms.ToolTip ToolTipMain;
         private System.Windows.Forms.GroupBox GroupBoxProcessInfo;
-        private System.Windows.Forms.Label LabelProcessIdValue;
         private System.Windows.Forms.Label LabelProcessId;
+        private System.Windows.Forms.Label LabelProcessIdValue;
         private System.Windows.Forms.Label LabelProcessName;
         private System.Windows.Forms.Label LabelProcessNameValue;
+        private System.Windows.Forms.Label LabelWindowTitle;
+        private System.Windows.Forms.Label LabelWindowTitleValue;
+        private System.Windows.Forms.Button ButtonWindowTitleUpdate;
         private System.Windows.Forms.Label LabelNonPagedSystemMemory;
         private System.Windows.Forms.Label LabelNonPagedSystemMemoryValue;
         private System.Windows.Forms.Label LabelPagedSystemMemory;
         private System.Windows.Forms.Label LabelPagedSystemMemoryValue;
-        private System.Windows.Forms.StatusStrip StatusStripMain;
-        private System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabelMain;
         private System.Windows.Forms.Label LabelPagedMemory;
         private System.Windows.Forms.Label LabelPagedMemoryValue;
-        private System.Windows.Forms.Label LabelPeakPagedMemoryValue;
         private System.Windows.Forms.Label LabelPeakPagedMemory;
+        private System.Windows.Forms.Label LabelPeakPagedMemoryValue;
         private System.Windows.Forms.Label LabelVirtualMemory;
         private System.Windows.Forms.Label LabelVirtualMemoryValue;
-        private System.Windows.Forms.Label LabelPeakVirtualMemoryValue;
         private System.Windows.Forms.Label LabelPeakVirtualMemory;
+        private System.Windows.Forms.Label LabelPeakVirtualMemoryValue;
+        private System.Windows.Forms.Label LabelPrivateMemory;
+        private System.Windows.Forms.Label LabelPrivateMemoryValue;
+        private System.Windows.Forms.StatusStrip StatusStripMain;
+        private System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabelMain;
     }
 }
 
