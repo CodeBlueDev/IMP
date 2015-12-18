@@ -103,6 +103,7 @@
             this.MinimumSize = new System.Drawing.Size(455, 475);
             this.Name = "ProcessSelectorForm";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select Process";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnProcessSelectorFormClosing);

@@ -13,6 +13,10 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         // TODO: Column Sort with Sort Direction
         // TODO: Allow User to filter based on criteria
 
+        public delegate void ProcessSelectedHandler(Process process);
+
+        public ProcessSelectedHandler ProcessSelect;
+
         public ProcessSelectorForm()
         {
             _processes = new BindingList<ProcessSelectorFormViewModel>();
@@ -21,8 +25,6 @@ namespace CodeBlueDev.Imp.WinForms.Forms
 
             DataGridViewProcesses.DataSource = _processes;
         }
-
-        // TODO: have an event that can be tied to when a Process is selected.
 
         private void OnProcessSelectorFormShown(object sender, EventArgs e)
         {
@@ -36,6 +38,29 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             {
                 return;
             }
+            // Get the selected process and make sure it is still valid.
+            ProcessSelectorFormViewModel selectedProcessRow = _processes[DataGridViewProcesses.SelectedRows[0].Index];
+            try
+            {
+                Process selectedProcess = Process.GetProcessById(selectedProcessRow.Id);
+                SelectProcess(selectedProcess);
+            }
+            catch (ArgumentException)
+            {
+                e.Cancel = true;
+                MessageBox.Show(
+                    $"Process with an Id of {selectedProcessRow.Id} is no longer running or the Id may have expired. Please try again.", 
+                    "Invalid Process Selected", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                PopulateProcessesDataGridView();
+            }
+        }
+
+        private void SelectProcess(Process process)
+        {
+            ProcessSelectedHandler processSelectedHandler = ProcessSelect;
+            processSelectedHandler?.Invoke(process);
         }
 
         private void OnDataGridViewProcessColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
