@@ -1,14 +1,14 @@
-﻿using CodeBlueDev.Imp.WinForms.ViewModels;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
+using CodeBlueDev.Imp.WinForms.ViewModels.ProcessSelectorForm;
 
 namespace CodeBlueDev.Imp.WinForms.Forms
 {
     public partial class ProcessSelectorForm : Form
     {
-        private readonly BindingList<ProcessSelectorFormViewModel> _processes;
+        private readonly BindingList<ProcessDataGridViewModel> _processes;
 
         // TODO: Column Sort with Sort Direction
         // TODO: Allow User to filter based on criteria
@@ -19,16 +19,16 @@ namespace CodeBlueDev.Imp.WinForms.Forms
 
         public ProcessSelectorForm()
         {
-            _processes = new BindingList<ProcessSelectorFormViewModel>();
+            _processes = new BindingList<ProcessDataGridViewModel>();
 
             InitializeComponent();
 
-            DataGridViewProcesses.DataSource = _processes;
+            ProcessDataGridView.DataSource = _processes;
         }
 
         private void OnProcessSelectorFormShown(object sender, EventArgs e)
         {
-            PopulateProcessesDataGridView();
+            PopulateProcessDataGridView();
         }
 
         private void OnProcessSelectorFormClosing(object sender, FormClosingEventArgs e)
@@ -39,12 +39,13 @@ namespace CodeBlueDev.Imp.WinForms.Forms
                 return;
             }
             // Get the selected process and make sure it is still valid.
-            ProcessSelectorFormViewModel selectedProcessRow = _processes[DataGridViewProcesses.SelectedRows[0].Index];
+            ProcessDataGridViewModel selectedProcessRow = _processes[ProcessDataGridView.SelectedRows[0].Index];
             try
             {
                 Process selectedProcess = Process.GetProcessById(selectedProcessRow.Id);
                 SelectProcess(selectedProcess);
             }
+            // The process is not valid.
             catch (ArgumentException)
             {
                 e.Cancel = true;
@@ -53,7 +54,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
                     "Invalid Process Selected", 
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-                PopulateProcessesDataGridView();
+                PopulateProcessDataGridView();
             }
         }
 
@@ -63,12 +64,12 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             processSelectedHandler?.Invoke(process);
         }
 
-        private void OnDataGridViewProcessColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void OnProcessDataGridViewColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            MessageBox.Show($"//TODO: Sort by {DataGridViewProcesses.Columns[e.ColumnIndex].Name}");
+            MessageBox.Show($"//TODO: Sort by {ProcessDataGridView.Columns[e.ColumnIndex].Name}");
         }
 
-        private void OnDataGridViewProcessCellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void OnProcessDataGridViewCellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Do nothing if the user is resizing rows.
             if (Cursor.Current == Cursors.SizeNS)
@@ -84,10 +85,10 @@ namespace CodeBlueDev.Imp.WinForms.Forms
 
         private void OnRefreshButtonClick(object sender, EventArgs e)
         {
-            PopulateProcessesDataGridView();
+            PopulateProcessDataGridView();
         }
 
-        private void PopulateProcessesDataGridView()
+        private void PopulateProcessDataGridView()
         {
             try
             {
@@ -96,7 +97,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
                 _processes.Clear();
                 foreach (Process process in Process.GetProcesses())
                 {
-                    _processes.Add(new ProcessSelectorFormViewModel()
+                    _processes.Add(new ProcessDataGridViewModel()
                     {
                         Id = process.Id,
                         Name = process.ProcessName,

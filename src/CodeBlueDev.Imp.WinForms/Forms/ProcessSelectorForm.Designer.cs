@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DataGridViewProcesses = new System.Windows.Forms.DataGridView();
+            this.ProcessDataGridView = new System.Windows.Forms.DataGridView();
             this.ButtonRefresh = new System.Windows.Forms.Button();
             this.ButtonCancel = new System.Windows.Forms.Button();
             this.ButtonSelect = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProcesses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProcessDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // DataGridViewProcesses
+            // ProcessDataGridView
             // 
-            this.DataGridViewProcesses.AllowUserToAddRows = false;
-            this.DataGridViewProcesses.AllowUserToDeleteRows = false;
-            this.DataGridViewProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ProcessDataGridView.AllowUserToAddRows = false;
+            this.ProcessDataGridView.AllowUserToDeleteRows = false;
+            this.ProcessDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataGridViewProcesses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridViewProcesses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewProcesses.Location = new System.Drawing.Point(12, 12);
-            this.DataGridViewProcesses.MultiSelect = false;
-            this.DataGridViewProcesses.Name = "DataGridViewProcesses";
-            this.DataGridViewProcesses.ReadOnly = true;
-            this.DataGridViewProcesses.RowHeadersVisible = false;
-            this.DataGridViewProcesses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewProcesses.Size = new System.Drawing.Size(415, 489);
-            this.DataGridViewProcesses.TabIndex = 0;
-            this.DataGridViewProcesses.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnDataGridViewProcessCellDoubleClick);
-            this.DataGridViewProcesses.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnDataGridViewProcessColumnHeaderMouseClick);
+            this.ProcessDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ProcessDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProcessDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.ProcessDataGridView.MultiSelect = false;
+            this.ProcessDataGridView.Name = "ProcessDataGridView";
+            this.ProcessDataGridView.ReadOnly = true;
+            this.ProcessDataGridView.RowHeadersVisible = false;
+            this.ProcessDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ProcessDataGridView.Size = new System.Drawing.Size(415, 489);
+            this.ProcessDataGridView.TabIndex = 0;
+            this.ProcessDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnProcessDataGridViewCellDoubleClick);
+            this.ProcessDataGridView.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.OnProcessDataGridViewColumnHeaderMouseClick);
             // 
             // ButtonRefresh
             // 
@@ -97,7 +97,7 @@
             this.Controls.Add(this.ButtonSelect);
             this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.ButtonRefresh);
-            this.Controls.Add(this.DataGridViewProcesses);
+            this.Controls.Add(this.ProcessDataGridView);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(455, 475);
@@ -108,14 +108,14 @@
             this.Text = "Select Process";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnProcessSelectorFormClosing);
             this.Shown += new System.EventHandler(this.OnProcessSelectorFormShown);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProcesses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProcessDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView DataGridViewProcesses;
+        private System.Windows.Forms.DataGridView ProcessDataGridView;
         private System.Windows.Forms.Button ButtonRefresh;
         private System.Windows.Forms.Button ButtonCancel;
         private System.Windows.Forms.Button ButtonSelect;
