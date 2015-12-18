@@ -15,6 +15,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             InitializeComponent();
 
             _processSelectorForm = new ProcessSelectorForm();
+            _processSelectorForm.ProcessSelected += OnProcessSelect;
         }
 
         private void OnMainFormLoad(object sender, EventArgs e)
@@ -23,6 +24,17 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             Hide();
             // Show the form to select a process from.
             ShowSelectProcessForm();
+        }
+
+        private void OnProcessSelect(Process process)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<Process>(OnProcessSelect), process);
+                return;
+            }
+
+            // TODO: Logic to do with the selected process.
         }
 
         private void ShowSelectProcessForm()
