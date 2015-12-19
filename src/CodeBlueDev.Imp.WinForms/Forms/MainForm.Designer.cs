@@ -30,10 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.MenuStripMain = new System.Windows.Forms.MenuStrip();
+            this.FileMenuStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SelectProcessMenuStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitMenuStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.ExitMenuStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMain = new System.Windows.Forms.ToolStrip();
             this.StatusStripMain = new System.Windows.Forms.StatusStrip();
             this.ToolStripStatusLabelMain = new System.Windows.Forms.ToolStripStatusLabel();
             this.GroupBoxProcessInfo = new System.Windows.Forms.GroupBox();
+            this.UpdateWindowTitleButton = new System.Windows.Forms.Button();
+            this.LabelWindowTitleValue = new System.Windows.Forms.Label();
+            this.LabelWindowTitle = new System.Windows.Forms.Label();
             this.LabelPrivateMemoryValue = new System.Windows.Forms.Label();
             this.LabelPrivateMemory = new System.Windows.Forms.Label();
             this.LabelPeakVirtualMemoryValue = new System.Windows.Forms.Label();
@@ -53,19 +60,48 @@
             this.LabelProcessIdValue = new System.Windows.Forms.Label();
             this.LabelProcessId = new System.Windows.Forms.Label();
             this.ToolTipMain = new System.Windows.Forms.ToolTip(this.components);
-            this.LabelWindowTitle = new System.Windows.Forms.Label();
-            this.LabelWindowTitleValue = new System.Windows.Forms.Label();
-            this.ButtonWindowTitleUpdate = new System.Windows.Forms.Button();
+            this.MenuStripMain.SuspendLayout();
             this.StatusStripMain.SuspendLayout();
             this.GroupBoxProcessInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuStripMain
             // 
+            this.MenuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileMenuStripMenuItem});
             this.MenuStripMain.Location = new System.Drawing.Point(0, 0);
             this.MenuStripMain.Name = "MenuStripMain";
             this.MenuStripMain.Size = new System.Drawing.Size(484, 24);
             this.MenuStripMain.TabIndex = 0;
+            // 
+            // FileMenuStripMenuItem
+            // 
+            this.FileMenuStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SelectProcessMenuStripMenuItem,
+            this.ExitMenuStripSeparator,
+            this.ExitMenuStripMenuItem});
+            this.FileMenuStripMenuItem.Name = "FileMenuStripMenuItem";
+            this.FileMenuStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.FileMenuStripMenuItem.Text = "&File";
+            // 
+            // SelectProcessMenuStripMenuItem
+            // 
+            this.SelectProcessMenuStripMenuItem.Name = "SelectProcessMenuStripMenuItem";
+            this.SelectProcessMenuStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SelectProcessMenuStripMenuItem.Text = "&Select Process";
+            this.SelectProcessMenuStripMenuItem.Click += new System.EventHandler(this.OnSelectProcessToolStripMenuItemClick);
+            // 
+            // ExitMenuStripSeparator
+            // 
+            this.ExitMenuStripSeparator.Name = "ExitMenuStripSeparator";
+            this.ExitMenuStripSeparator.Size = new System.Drawing.Size(149, 6);
+            // 
+            // ExitMenuStripMenuItem
+            // 
+            this.ExitMenuStripMenuItem.Name = "ExitMenuStripMenuItem";
+            this.ExitMenuStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ExitMenuStripMenuItem.Text = "E&xit";
+            this.ExitMenuStripMenuItem.Click += new System.EventHandler(this.OnExitToolStripMenuItemClick);
             // 
             // ToolStripMain
             // 
@@ -93,7 +129,7 @@
             // 
             this.GroupBoxProcessInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GroupBoxProcessInfo.Controls.Add(this.ButtonWindowTitleUpdate);
+            this.GroupBoxProcessInfo.Controls.Add(this.UpdateWindowTitleButton);
             this.GroupBoxProcessInfo.Controls.Add(this.LabelWindowTitleValue);
             this.GroupBoxProcessInfo.Controls.Add(this.LabelWindowTitle);
             this.GroupBoxProcessInfo.Controls.Add(this.LabelPrivateMemoryValue);
@@ -120,6 +156,32 @@
             this.GroupBoxProcessInfo.TabIndex = 0;
             this.GroupBoxProcessInfo.TabStop = false;
             this.GroupBoxProcessInfo.Text = "Process Info";
+            // 
+            // UpdateWindowTitleButton
+            // 
+            this.UpdateWindowTitleButton.Location = new System.Drawing.Point(379, 37);
+            this.UpdateWindowTitleButton.Name = "UpdateWindowTitleButton";
+            this.UpdateWindowTitleButton.Size = new System.Drawing.Size(75, 23);
+            this.UpdateWindowTitleButton.TabIndex = 24;
+            this.UpdateWindowTitleButton.Text = "Update";
+            this.UpdateWindowTitleButton.UseVisualStyleBackColor = true;
+            // 
+            // LabelWindowTitleValue
+            // 
+            this.LabelWindowTitleValue.Location = new System.Drawing.Point(98, 42);
+            this.LabelWindowTitleValue.Name = "LabelWindowTitleValue";
+            this.LabelWindowTitleValue.Size = new System.Drawing.Size(275, 13);
+            this.LabelWindowTitleValue.TabIndex = 23;
+            // 
+            // LabelWindowTitle
+            // 
+            this.LabelWindowTitle.AutoSize = true;
+            this.LabelWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelWindowTitle.Location = new System.Drawing.Point(7, 42);
+            this.LabelWindowTitle.Name = "LabelWindowTitle";
+            this.LabelWindowTitle.Size = new System.Drawing.Size(85, 13);
+            this.LabelWindowTitle.TabIndex = 22;
+            this.LabelWindowTitle.Text = "Window Title:";
             // 
             // LabelPrivateMemoryValue
             // 
@@ -293,32 +355,6 @@
             this.LabelProcessId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ToolTipMain.SetToolTip(this.LabelProcessId, "The Unique Identifier associated with the Process.");
             // 
-            // LabelWindowTitle
-            // 
-            this.LabelWindowTitle.AutoSize = true;
-            this.LabelWindowTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelWindowTitle.Location = new System.Drawing.Point(7, 42);
-            this.LabelWindowTitle.Name = "LabelWindowTitle";
-            this.LabelWindowTitle.Size = new System.Drawing.Size(85, 13);
-            this.LabelWindowTitle.TabIndex = 22;
-            this.LabelWindowTitle.Text = "Window Title:";
-            // 
-            // LabelWindowTitleValue
-            // 
-            this.LabelWindowTitleValue.Location = new System.Drawing.Point(98, 42);
-            this.LabelWindowTitleValue.Name = "LabelWindowTitleValue";
-            this.LabelWindowTitleValue.Size = new System.Drawing.Size(275, 13);
-            this.LabelWindowTitleValue.TabIndex = 23;
-            // 
-            // ButtonWindowTitleUpdate
-            // 
-            this.ButtonWindowTitleUpdate.Location = new System.Drawing.Point(379, 37);
-            this.ButtonWindowTitleUpdate.Name = "ButtonWindowTitleUpdate";
-            this.ButtonWindowTitleUpdate.Size = new System.Drawing.Size(75, 23);
-            this.ButtonWindowTitleUpdate.TabIndex = 24;
-            this.ButtonWindowTitleUpdate.Text = "Update";
-            this.ButtonWindowTitleUpdate.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +369,8 @@
             this.Text = "IMP";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnMainFormClosed);
             this.Load += new System.EventHandler(this.OnMainFormLoad);
+            this.MenuStripMain.ResumeLayout(false);
+            this.MenuStripMain.PerformLayout();
             this.StatusStripMain.ResumeLayout(false);
             this.StatusStripMain.PerformLayout();
             this.GroupBoxProcessInfo.ResumeLayout(false);
@@ -353,7 +391,7 @@
         private System.Windows.Forms.Label LabelProcessNameValue;
         private System.Windows.Forms.Label LabelWindowTitle;
         private System.Windows.Forms.Label LabelWindowTitleValue;
-        private System.Windows.Forms.Button ButtonWindowTitleUpdate;
+        private System.Windows.Forms.Button UpdateWindowTitleButton;
         private System.Windows.Forms.Label LabelNonPagedSystemMemory;
         private System.Windows.Forms.Label LabelNonPagedSystemMemoryValue;
         private System.Windows.Forms.Label LabelPagedSystemMemory;
@@ -370,6 +408,10 @@
         private System.Windows.Forms.Label LabelPrivateMemoryValue;
         private System.Windows.Forms.StatusStrip StatusStripMain;
         private System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabelMain;
+        private System.Windows.Forms.ToolStripMenuItem FileMenuStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SelectProcessMenuStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator ExitMenuStripSeparator;
+        private System.Windows.Forms.ToolStripMenuItem ExitMenuStripMenuItem;
     }
 }
 

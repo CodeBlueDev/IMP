@@ -55,26 +55,40 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             // TODO: Dispose of timer.
         }
 
+        private void OnSelectProcessToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            ShowSelectProcessForm();
+        }
+
+        private void OnExitToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void ShowSelectProcessForm()
         {
-            // ProcessSelectorForm was closed or cancelled
-            if (_processSelectorForm.ShowDialog() != DialogResult.OK)
+            while (true)
             {
-                // Check if the user has already selected a process.
-                if (_selectedProcess != null)
+                // ProcessSelectorForm was closed or cancelled
+                if (_processSelectorForm.ShowDialog() != DialogResult.OK)
                 {
-                    return;
+                    // Check if the user has already selected a process.
+                    if (_selectedProcess != null)
+                    {
+                        return;
+                    }
+                    // Check if the user wants to exit. 
+                    if (MessageBox.Show("", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        Close();
+                    }
+                    else
+                    {
+                        // User must select a process.
+                        continue;
+                    }
                 }
-                // Check if the user wants to exit. 
-                if (MessageBox.Show("", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    Close();
-                }
-                else
-                {
-                    // User must select a process.
-                    ShowSelectProcessForm();
-                }
+                break;
             }
         }
 
