@@ -41,6 +41,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             LabelProcessIdValue.Text = _selectedProcess.Id.ToString();
             LabelProcessNameValue.Text = _selectedProcess.ProcessName;
             // TODO: Figure out if process is 64 bit process and display to user.
+            // TODO: Display the owner if we are able to retrieve it.
             // Display values that could change.
             ShowProcessInfo();
             // TODO: Logic to do with the selected process modules.
@@ -63,6 +64,11 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         private void OnExitToolStripMenuItemClick(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void OnUpdateWindowTitleButtonClick(object sender, EventArgs e)
+        {
+            // TODO:
         }
 
         private void ShowSelectProcessForm()

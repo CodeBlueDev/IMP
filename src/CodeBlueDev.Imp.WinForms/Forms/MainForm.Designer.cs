@@ -115,7 +115,7 @@
             // 
             this.StatusStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripStatusLabelMain});
-            this.StatusStripMain.Location = new System.Drawing.Point(0, 240);
+            this.StatusStripMain.Location = new System.Drawing.Point(0, 386);
             this.StatusStripMain.Name = "StatusStripMain";
             this.StatusStripMain.Size = new System.Drawing.Size(484, 22);
             this.StatusStripMain.TabIndex = 2;
@@ -165,6 +165,7 @@
             this.UpdateWindowTitleButton.TabIndex = 24;
             this.UpdateWindowTitleButton.Text = "Update";
             this.UpdateWindowTitleButton.UseVisualStyleBackColor = true;
+            this.UpdateWindowTitleButton.Click += new System.EventHandler(this.OnUpdateWindowTitleButtonClick);
             // 
             // LabelWindowTitleValue
             // 
@@ -316,7 +317,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelProcessNameValue.Location = new System.Drawing.Point(192, 20);
             this.LabelProcessNameValue.Name = "LabelProcessNameValue";
-            this.LabelProcessNameValue.Size = new System.Drawing.Size(262, 13);
+            this.LabelProcessNameValue.Size = new System.Drawing.Size(234, 13);
             this.LabelProcessNameValue.TabIndex = 0;
             this.LabelProcessNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ToolTipMain.SetToolTip(this.LabelProcessNameValue, "The name of the selected Process.");
@@ -359,7 +360,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 262);
+            this.ClientSize = new System.Drawing.Size(484, 408);
             this.Controls.Add(this.GroupBoxProcessInfo);
             this.Controls.Add(this.StatusStripMain);
             this.Controls.Add(this.ToolStripMain);
