@@ -6,10 +6,29 @@ namespace CodeBlueDev.Imp.WinForms.Forms
 {
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// The form used to select the Process.
+        /// </summary>
         private readonly ProcessSelectorForm _processSelectorForm;
 
+        /// <summary>
+        /// The selected process.
+        /// </summary>
         private Process _selectedProcess;
 
+        /// <summary>
+        /// The text displayed when the user does not select a process.
+        /// </summary>
+        private const string ProcessSelectorFormMessageBoxText = "Unable to run application without a process. Would you like to select a process?";
+
+        /// <summary>
+        /// The caption displayed when the user does not select a process.
+        /// </summary>
+        private const string ProcessSelectorFormMessageBoxCaption = "Must select a process";
+
+        /// <summary>
+        /// Shows details of the selected Process and allows operations on it.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -71,6 +90,10 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             // TODO:
         }
 
+        /// <summary>
+        /// Shows the ProcessSelectorForm and determines whether or not the form should be
+        /// redisplayed.
+        /// </summary>
         private void ShowSelectProcessForm()
         {
             while (true)
@@ -84,7 +107,10 @@ namespace CodeBlueDev.Imp.WinForms.Forms
                         return;
                     }
                     // Check if the user wants to exit. 
-                    if (MessageBox.Show("", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show(
+                        ProcessSelectorFormMessageBoxText, 
+                        ProcessSelectorFormMessageBoxCaption, 
+                        MessageBoxButtons.YesNo) == DialogResult.No)
                     {
                         Close();
                     }
@@ -98,6 +124,9 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             }
         }
 
+        /// <summary>
+        /// Show process window title and memory information.
+        /// </summary>
         private void ShowProcessInfo()
         {
             // TODO: Will need to bind to Size event to properly put the labels so they do not overlap.
