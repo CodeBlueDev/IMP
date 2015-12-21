@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace CodeBlueDev.Imp.WinForms.Forms
 {
+    /// <summary>
+    /// Creates an instance of the MainForm to display the contents of a Process.
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>

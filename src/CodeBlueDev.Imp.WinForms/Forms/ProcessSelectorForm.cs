@@ -6,17 +6,34 @@ using CodeBlueDev.Imp.WinForms.ViewModels.ProcessSelectorForm;
 
 namespace CodeBlueDev.Imp.WinForms.Forms
 {
+    /// <summary>
+    /// Displays a list of Processes to select a Process from.
+    /// </summary>
     public partial class ProcessSelectorForm : Form
     {
+        /// <summary>
+        /// The list of Processes to show in the DataGridView.
+        /// </summary>
         private readonly BindingList<ProcessDataGridViewModel> _processes;
 
         // TODO: Column Sort with Sort Direction
         // TODO: Allow User to filter based on criteria
 
-        public delegate void ProcessSelectedHandler(Process process);
+        /// <summary>
+        /// Handler used when an event is selected from the list of Processes.
+        /// </summary>
+        /// <param name="selectedProcess">The Process that was selected.</param>
+        public delegate void ProcessSelectedHandler(Process selectedProcess);
 
+        /// <summary>
+        /// The event activated when an event is selected from the list of Processes.
+        /// </summary>
         public ProcessSelectedHandler ProcessSelect;
 
+        /// <summary>
+        /// Creates an instance of the ProcessSelectorForm to display a list of Processes to
+        /// select a Process from.
+        /// </summary>
         public ProcessSelectorForm()
         {
             _processes = new BindingList<ProcessDataGridViewModel>();
@@ -58,10 +75,14 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             }
         }
 
-        private void SelectProcess(Process process)
+        /// <summary>
+        /// Notifies any event subscribers with the Process that has been selected.
+        /// </summary>
+        /// <param name="selectedProcess">The Process selected.</param>
+        private void SelectProcess(Process selectedProcess)
         {
             ProcessSelectedHandler processSelectedHandler = ProcessSelect;
-            processSelectedHandler?.Invoke(process);
+            processSelectedHandler?.Invoke(selectedProcess);
         }
 
         private void OnProcessDataGridViewColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -88,6 +109,9 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             PopulateProcessDataGridView();
         }
 
+        /// <summary>
+        /// Updates the DataGridView with the list of currently running Processes.
+        /// </summary>
         private void PopulateProcessDataGridView()
         {
             try
