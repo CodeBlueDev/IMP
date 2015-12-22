@@ -51,6 +51,11 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             this.processSelectorForm.ProcessSelect += this.OnProcessSelect;
         }
 
+        /// <summary>
+        /// Raised by the <see cref="E:System.Windows.Forms.Form.Load"/> event.
+        /// </summary>
+        /// <param name="sender">The object responsible for raising the event.</param>
+        /// <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data. </param>
         private void OnMainFormLoad(object sender, EventArgs e)
         {
             // Do not show the form until a process has been selected.
@@ -60,6 +65,10 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             this.ShowSelectProcessForm();
         }
 
+        /// <summary>
+        /// Raised by the <see cref="E:ProcessSelectorForm.ProcessSelect"/> event.
+        /// </summary>
+        /// <param name="process">The process selected.</param>
         private void OnProcessSelect(Process process)
         {
             // If the Process was selected on a separate thread, invoke the 
@@ -89,6 +98,11 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             // TODO: Start the timer that will update the values that could change.
         }
 
+        /// <summary>
+        /// Raised by the <see cref="E:System.Windows.Forms.Form.Closed"/> event.
+        /// </summary>
+        /// <param name="sender">The object responsible for raising the event.</param>
+        /// <param name="e">A <see cref="T:System.Windows.Forms.FormClosedEventArgs"/> that contains the event data. </param>
         private void OnMainFormClosed(object sender, FormClosedEventArgs e)
         {
             // Cleanup.
@@ -120,7 +134,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         {
             while (true)
             {
-                // ProcessSelectorForm was closed or cancelled
+                // ProcessSelectorForm was closed or canceled
                 if (this.processSelectorForm.ShowDialog() != DialogResult.OK)
                 {
                     // Check if the user has already selected a process.

@@ -7,7 +7,6 @@ using CodeBlueDev.Imp.WinForms.Properties;
 
 namespace CodeBlueDev.Imp.WinForms.Forms
 {
-
     /// <summary>
     /// Displays a list of Processes to select a <see cref="Process"/> from.
     /// </summary>
