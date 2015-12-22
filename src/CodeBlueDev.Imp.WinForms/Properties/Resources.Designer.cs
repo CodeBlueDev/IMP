@@ -59,5 +59,14 @@ namespace CodeBlueDev.Imp.WinForms.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Process Selected.
+        /// </summary>
+        internal static string ProcessSelectorForm_OnProcessSelectorFormClosing_InvalidProcessSelected {
+            get {
+                return ResourceManager.GetString("ProcessSelectorForm_OnProcessSelectorFormClosing_InvalidProcessSelected", resourceCulture);
+            }
+        }
     }
 }
