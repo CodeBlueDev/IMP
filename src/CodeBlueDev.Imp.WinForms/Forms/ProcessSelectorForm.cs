@@ -56,7 +56,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         }
 
         /// <summary>
-        /// Raised by the <see cref="E:System.Windows.Forms.Form.FormClosing"/> event.
+        /// Raised by the <see cref="E:System.Windows.Forms.Form.FormClosing"/> event. Determines if the selected Process is valid and should notify the ProcessSelect event.
         /// </summary>
         /// <param name="sender">The object responsible for raising the event.</param>
         /// <param name="e">A <see cref="T:System.Windows.Forms.FormClosingEventArgs"/> that contains the event data. </param>
@@ -99,7 +99,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         }
 
         /// <summary>
-        /// Raised by the <see cref="E:System.Windows.Forms.DataGridView.ColumnHeaderMouseClick"/> event.
+        /// Raised by the <see cref="E:System.Windows.Forms.DataGridView.ColumnHeaderMouseClick"/> event. Sorts the Processes by the column selected.
         /// </summary>
         /// <param name="sender">The object responsible for raising the event.</param>
         /// <param name="e">A <see cref="T:System.Windows.Forms.DataGridViewCellMouseEventArgs"/> that contains the event data. </param>
@@ -109,7 +109,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         }
 
         /// <summary>
-        /// Raised by the <see cref="E:System.Windows.Forms.DataGridView.CellDoubleClick"/> event.
+        /// Raised by the <see cref="E:System.Windows.Forms.DataGridView.CellDoubleClick"/> event. Selects Processes by double click when a row is double clicked, still allows rows to be resized.
         /// </summary>
         /// <param name="sender">The object responsible for raising the event.</param>
         /// <param name="e">A <see cref="T:System.Windows.Forms.DataGridViewCellEventArgs"/> that contains the event data. </param>
@@ -128,7 +128,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         }
 
         /// <summary>
-        /// Raised by the <see cref="E:System.Windows.Forms.Control.Click"/> event.
+        /// Raised by the <see cref="E:System.Windows.Forms.Control.Click"/> event. Refreshes the list of Processes.
         /// </summary>
         /// <param name="sender">The object responsible for raising the event.</param>
         /// <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data. </param>

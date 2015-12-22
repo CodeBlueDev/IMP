@@ -52,7 +52,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         }
 
         /// <summary>
-        /// Raised by the <see cref="E:System.Windows.Forms.Form.Load"/> event.
+        /// Raised by the <see cref="E:System.Windows.Forms.Form.Load"/> event. Shows the ProcessSelectorForm when the MainForm is loaded.
         /// </summary>
         /// <param name="sender">The object responsible for raising the event.</param>
         /// <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data. </param>
@@ -66,7 +66,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         }
 
         /// <summary>
-        /// Raised by the <see cref="E:ProcessSelectorForm.ProcessSelect"/> event.
+        /// Raised by the <see cref="E:ProcessSelectorForm.ProcessSelect"/> event when a Process is selected from the ProcessSelectorForm.
         /// </summary>
         /// <param name="process">The process selected.</param>
         private void OnProcessSelect(Process process)
@@ -99,7 +99,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         }
 
         /// <summary>
-        /// Raised by the <see cref="E:System.Windows.Forms.Form.Closed"/> event.
+        /// Raised by the <see cref="E:System.Windows.Forms.Form.Closed"/> event. Cleans up before exiting.
         /// </summary>
         /// <param name="sender">The object responsible for raising the event.</param>
         /// <param name="e">A <see cref="T:System.Windows.Forms.FormClosedEventArgs"/> that contains the event data. </param>
@@ -112,23 +112,38 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             // TODO: Dispose of timer.
         }
 
+        /// <summary>
+        /// Shows the SelectProcessForm to select a Process when the SelectProcessToolStripMenuItem is selected.
+        /// </summary>
+        /// <param name="sender">The <see langword="object"/> responsible for raising the event.</param>
+        /// <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         private void OnSelectProcessToolStripMenuItemClick(object sender, EventArgs e)
         {
             this.ShowSelectProcessForm();
         }
 
+        /// <summary>
+        /// Exits the application when the ExitMenuToolStripMenuItem is selected.
+        /// </summary>
+        /// <param name="sender">The <see langword="object"/> responsible for raising the event.</param>
+        /// <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         private void OnExitToolStripMenuItemClick(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Updates the WindowTitle of the selected Process.
+        /// </summary>
+        /// <param name="sender">The <see langword="object"/> responsible for raising the event.</param>
+        /// <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
         private void OnUpdateWindowTitleButtonClick(object sender, EventArgs e)
         {
             // TODO:
         }
 
         /// <summary>
-        ///  <see cref="ProcessSelectorForm"/>SelectorForm and determines whether or not the form should be redisplayed.
+        /// Shows <see cref="ProcessSelectorForm"/>SelectorForm and determines whether or not the form should be redisplayed if no Process is selected..
         /// </summary>
         private void ShowSelectProcessForm()
         {
