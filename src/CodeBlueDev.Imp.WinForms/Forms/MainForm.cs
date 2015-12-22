@@ -34,6 +34,11 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         private readonly ProcessSelectorForm processSelectorForm;
 
         /// <summary>
+        /// The Timer used to update the Process information every tick cycle.
+        /// </summary>
+        private readonly Timer processTimer;
+
+        /// <summary>
         /// The selected process.
         /// </summary>
         private Process selectedProcess;
@@ -49,6 +54,13 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             // Initialize the form that will allow the user to select a Process.
             this.processSelectorForm = new ProcessSelectorForm();
             this.processSelectorForm.ProcessSelect += this.OnProcessSelect;
+
+            // Create a new instance of the timer.
+            processTimer = new Timer();
+
+            // Associate a time delay and a method that handles the tick event.
+            processTimer.Interval = 5000;
+            processTimer.Tick += OnProcessTimerTick;
         }
 
         /// <summary>
@@ -95,7 +107,8 @@ namespace CodeBlueDev.Imp.WinForms.Forms
 
             // TODO: Logic to do with the selected process modules.
 
-            // TODO: Start the timer that will update the values that could change.
+            // Start the timer that will update the values that could change.
+            processTimer.Start();
         }
 
         /// <summary>
@@ -109,7 +122,15 @@ namespace CodeBlueDev.Imp.WinForms.Forms
             this.processSelectorForm.Dispose();
             this.selectedProcess = null;
 
-            // TODO: Dispose of timer.
+            // Check if the timer is going.
+            if(this.processTimer.Enabled)
+            {
+                this.processTimer.Stop();
+            }
+
+            // Cleanup the timer
+            this.processTimer.Tick -= OnProcessTimerTick;
+            this.processTimer.Dispose();
         }
 
         /// <summary>
@@ -143,10 +164,47 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         }
 
         /// <summary>
+        /// Updates the Process information every tick cycle.
+        /// </summary>
+        /// <param name="sender">The <see langword="object"/> responsible for raising the event.</param>
+        /// <param name="e">A <see cref="T:System.EventArgs"/> that contains the event data.</param>
+        private void OnProcessTimerTick(object sender, EventArgs e)
+        {
+            // Verify we have a process before trying to update values.
+            if (selectedProcess == null)
+            {
+                return;
+            }
+
+            // Stop the timer so we aren't ticking anymore.
+            this.processTimer.Stop();
+
+            // Update the display so the user knows what we are doing.
+            this.ToolStripStatusLabelMain.Text = "Refreshing Process Information...";
+            this.Refresh();
+            
+            // Update the Process information.
+            this.selectedProcess.Refresh();
+            this.ShowProcessInfo();
+
+            // Update the display to let the user know we are done.
+            this.ToolStripStatusLabelMain.Text = "Refreshed Process Information";
+            this.Refresh();
+
+            // restart the timer.
+            this.processTimer.Start();
+        }
+
+        /// <summary>
         /// Shows <see cref="ProcessSelectorForm"/>SelectorForm and determines whether or not the form should be redisplayed if no Process is selected..
         /// </summary>
         private void ShowSelectProcessForm()
         {
+            if(processTimer.Enabled)
+            {
+                processTimer.Stop();
+            }
+
             while (true)
             {
                 // ProcessSelectorForm was closed or canceled
@@ -155,6 +213,7 @@ namespace CodeBlueDev.Imp.WinForms.Forms
                     // Check if the user has already selected a process.
                     if (this.selectedProcess != null)
                     {
+                        processTimer.Start();
                         return;
                     }
 

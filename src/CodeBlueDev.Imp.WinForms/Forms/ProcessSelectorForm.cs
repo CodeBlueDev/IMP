@@ -38,10 +38,9 @@ namespace CodeBlueDev.Imp.WinForms.Forms
         /// <exception cref="Exception">An error occurred in the data source and either there is no handler for the <see cref="E:System.Windows.Forms.DataGridView.DataError" /> event or the handler has set the <see cref="P:System.Windows.Forms.DataGridViewDataErrorEventArgs.ThrowException" /> property to true. The exception object can typically be cast to type <see cref="T:System.FormatException" />.</exception>
         public ProcessSelectorForm()
         {
-            this.processes = new BindingList<ProcessDataGridViewModel>();
-
             this.InitializeComponent();
 
+            this.processes = new BindingList<ProcessDataGridViewModel>();
             this.ProcessDataGridView.DataSource = this.processes;
         }
 
